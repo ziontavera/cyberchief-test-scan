@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Cyber Chief Security Scanner
+        uses: audacix/cyber-chief-security-scanner@v5
+        with:
+          target_url: 'https://cc.cyberchief.co/api/132/ff60a9/automated-tests/'
+          api_token: 'f4e8ec71453a5e8d0921671bdbe448b3106b7bc6'
+          scope: 'reconnaissance'
+          scan_type: 'web'
+          fail_high_medium: true
+          
